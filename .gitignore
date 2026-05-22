@@ -1,0 +1,13 @@
+# Javascript
+
+node_modules/
+.env.local
+*.swp
+npm-debug.log*
+.cache/
+yarn-error.log*
+*.swo
+.env
+Thumbs.db
+.next/
+yarn-debug.log*
