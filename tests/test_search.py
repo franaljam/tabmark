@@ -77,3 +77,15 @@ def test_tag_matching_is_case_insensitive(sample_bookmarks):
 def test_query_matching_is_case_insensitive(sample_bookmarks):
     results = search_bookmarks(sample_bookmarks, query="GITHUB")
     assert len(results) == 1
+
+
+def test_search_by_url_contains_case_insensitive(sample_bookmarks):
+    results = search_bookmarks(sample_bookmarks, url_contains="DOCS.PYTHON")
+    assert len(results) == 1
+    assert results[0].url == "https://docs.python.org"
+
+
+def test_search_bookmark_with_no_tags(sample_bookmarks):
+    """Bookmarks with empty tag lists should not appear in tag-filtered results."""
+    results = search_bookmarks(sample_bookmarks, tags=["python"])
+    assert all(b.url != "https://example.com" for b in results)
