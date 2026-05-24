@@ -1,10 +1,17 @@
-"""tabmark – lightweight browser bookmark exporter."""
+"""tabmark — Lightweight browser bookmark exporter."""
 
-from importlib.metadata import PackageNotFoundError, version
+from tabmark.bookmark import Bookmark
+from tabmark.storage import add_bookmark, load_bookmarks, remove_bookmark, save_bookmarks
+from tabmark.notes import get_note, set_note, clear_note, bookmarks_with_notes
 
-try:
-    __version__ = version("tabmark")
-except PackageNotFoundError:  # pragma: no cover
-    __version__ = "0.0.0.dev0"
-
-__all__ = ["__version__"]
+__all__ = [
+    "Bookmark",
+    "load_bookmarks",
+    "save_bookmarks",
+    "add_bookmark",
+    "remove_bookmark",
+    "get_note",
+    "set_note",
+    "clear_note",
+    "bookmarks_with_notes",
+]
